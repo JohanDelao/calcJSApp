@@ -1,0 +1,76 @@
+/* Select all elements before and after and give these attributes */
+*, *::before, *::after { 
+    /* Makes it easier to size our elements */
+    box-sizing: border-box;
+    /* Set font for entire application */
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+}
+
+body {
+    /* Set padding and margin to 0 so background fills entire screen */
+    padding: 0;
+    margin: 0;
+    /* Set background color */
+    background: linear-gradient(to right, #00AAFF, #00FF6C);
+}
+
+.calculator-grid {
+    /* Set to grid and center items */
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    /* columns repeat with 4 of them that are 100px each */
+    grid-template-columns: repeat(4, 100px);
+    /* minmax as it should be minimum 120px and maximum is how much size it needs */
+    /* repeats with 5 rows that are 100px each */
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+/* selecting all buttons in calculator-grid */
+.calculator-grid > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+    background-color: rgba(255, 255, 255, .75);
+}
+
+.calculator-grid > button:hover {
+    background-color: rgba(255, 255, 255, .9);
+}
+
+.span-two {
+    /* Anything with this class spans 2 columns instead of 1 */
+    grid-column: span 2;
+}
+
+.output {
+    /* This class covers the entire columns so full width */
+    grid-column: 1 / -1;
+    background-color: rgba(0, 0, 0, .75);
+    /* align items */
+    display: flex;
+    /* align items to right side */
+    align-items: flex-end;
+    /* separates the previous and current operand */
+    justify-content: space-around;
+    /* separates them vertically with space-around */
+    flex-direction: column;
+    padding: 10px;
+    /* if number gets too long, it will wrap */
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.output .previous-operand {
+    /* font color */
+    color: rgba(255, 255, 255, .75);
+    font-size: 1.5rem;
+}
+
+.output .current-operand {
+    /* font color */
+    color: white;
+    font-size: 2.5rem;
+}
